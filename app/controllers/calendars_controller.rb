@@ -22,7 +22,7 @@ class CalendarsController < ApplicationController
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
-    @todays_date = date.today
+    @todays_date = date_today
     # 例)　今日が2月1日の場合・・・ Date.today.day => 1日
 
     @week_days = []
@@ -32,7 +32,7 @@ class CalendarsController < ApplicationController
     7.times do |x|
       today_plans = []
       plans_each do |plan|
-        today_plans_push(plan.plan) if plan_date == @todays_date + x
+        today_plans_push(plan_plan) if plan_date == @todays_date + x
       end
       days = { :month: (@todays_date + x).month, :date: (@todays_date+x).day, :plans: today_plans}
       @week_days_push(days)
