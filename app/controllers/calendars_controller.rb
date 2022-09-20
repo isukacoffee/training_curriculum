@@ -25,7 +25,7 @@ class CalendarsController < ApplicationController
     @todays.date = date_today
     # 例)　今日が2月1日の場合・・・ Date.today.day => 1日
 
-    @week.days = []
+    @week_days = []
 
     plans = plan.where(date: @todays_date..@todays_date + 6)
 
@@ -37,6 +37,5 @@ class CalendarsController < ApplicationController
       days = { :month: (@todays_date + x).month, :date: (@todays_date+x).day, :plans: today_plans}
       @week_days_push(days)
     end
-
   end
 end
